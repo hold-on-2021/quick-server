@@ -13,7 +13,7 @@ if [ "$listeningPath" = '.' ];then
 fi
 if [ ! $listeningPort ];then
     # echo 'usage: express <PATH> <PORT>'
-    listeningPort='1001'
+    listeningPort='8000'
     # exit 1
 fi
 echo "指向路径：" $listeningPath
