@@ -18,7 +18,7 @@ if [ ! $listeningPort ];then
 fi
 echo "指向路径：" $listeningPath
 echo "监听端口：" $listeningPort
-cd ~/Documents/scripts
+# cd ~/Documents/scripts
 
 hostName=`ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"|head -1`
 echo -e "\n本地链接：\033[4mhttp://localhost:$listeningPort\033[0m"

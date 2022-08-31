@@ -2,7 +2,9 @@ let staticPath = process.argv[2]
 let port = process.argv[3]
 
 var express = require('express')
+var bodyParser = require('body-parser')
 var app = express()
+app.use(bodyParser.json())
 app.use(express.static(staticPath));
 
 app.all('*', function (req, res, next) {
@@ -16,7 +18,6 @@ app.all('*', function (req, res, next) {
 });
 
 app.get('/', function (req, res) {
-  console.log('DEBUG_LOG:req', req);
   res.send('Welcome!')
 })
 app.listen(port)
