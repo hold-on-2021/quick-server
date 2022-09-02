@@ -16,7 +16,8 @@ app.all('*', function (req, res, next) {
 	console.log('DEBUG_LOG:all', req.body);
 	if (req.body && req.body.url) {
 		let detail = req.body;
-		let feishuHook = 'https://open.feishu.cn/open-apis/bot/v2/hook/bff72dd1-95ac-43a6-b764-bf809fd9f682'
+		// let feishuHook = 'https://open.feishu.cn/open-apis/bot/v2/hook/bff72dd1-95ac-43a6-b764-bf809fd9f682'
+		let feishuHook = 'https://open.feishu.cn/open-apis/bot/v2/hook/d02d0e18-5eed-4778-98a7-3dd7f4bb0181'
 		axios.post(feishuHook, {
 			"msg_type": "post",
 			"content": {
