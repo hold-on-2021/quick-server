@@ -22,44 +22,47 @@ app.all('*', function (req, res, next) {
 			"content": {
 				"post": {
 					"zh_cn": {
-						"title": "程序异常通知",
+						"title": detail.event ? detail.event.title : "代码发现问题",
 						"content": [
 							[{
 								"tag": "text",
-								"text": `项目: ${detail.project_name}`
+								"text": `> 项目名称：${detail.project_name}`
 							}],
 							[{
 								"tag": "text",
-								"text": `问题描述: ${detail.message}`
+								"text": `> 问题等级：${detail.level}`
 							}],
-							[{
-								"tag": "text",
-								"text": `问题等级: ${detail.level}`
-							}],
+							[
+								detail.event && detail.event.user && detail.event.user.ip_address && {
+
+									"tag": "text",
+									"text": `> IP 地址：${detail.event.user.ip_address}`
+								}
+							],
 							[
 								detail.event && {
 
 									"tag": "text",
-									"text": `发生时间: ${detail.event.timestamp * 1000}`
+									"text": `> 发生时间：${new Date(detail.event.timestamp * 1000)}`
 								}
 							],
 							[
 								detail.event && {
 									"tag": "text",
-									"text": `运行环境: ${detail.event.environment}`
+									"text": `> 运行环境：${detail.event.environment}`
 								}
 							],
 							[{
 								"tag": "text",
-								"text": `监控帐号: ${'992340655@qq.com'}`
+								"text": `> 监控帐号：${'992340655@qq.com'}`
 							}],
 							[{
 								"tag": "text",
-								"text": `监控密码: ${'123456'}`
+								"text": `> 监控密码：${'123456'}`
 							}],
 							[{
 								"tag": "a",
-								"text": detail.url,
+								"text": `> 前往查看：${detail.url}`,
 								"href": detail.url
 							}]
 						]
