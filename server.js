@@ -58,7 +58,7 @@ let __start_server = ()=>{
 								[
 									detail.event && {
 										"tag": "text",
-										"text": `> 运行环境：${detail.event.release}`
+										"text": `> 运行环境：${detail.event.release||"本地调试"}`
 									}
 								],
 								[{
