@@ -28,6 +28,10 @@ app.all('*', function (req, res, next) {
 								"tag": "text",
 								"text": `> 项目名称：${detail.project_name}`
 							}],
+							[detail.event && detail.event.request && {
+								"tag": "text",
+								"text": `> 请求地址：${detail.event.request.url}`
+							}],
 							[{
 								"tag": "text",
 								"text": `> 问题等级：${detail.level}`
@@ -50,7 +54,7 @@ app.all('*', function (req, res, next) {
 							[
 								detail.event && {
 									"tag": "text",
-									"text": `> 运行环境：${detail.event.environment}`
+									"text": `> 运行环境：${detail.event.release}`
 								}
 							],
 							[{
