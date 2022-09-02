@@ -35,8 +35,9 @@ app.all('*', function (req, res, next) {
 							[
 								detail.event && detail.event.user && detail.event.user.ip_address && {
 
-									"tag": "text",
-									"text": `> IP 地址：${detail.event.user.ip_address}`
+									"tag": "a",
+									"text": `> IP 地址：${detail.event.user.ip_address}`,
+									"href": `https://www.ipshudi.com/${detail.event.user.ip_address}.htm`
 								}
 							],
 							[
