@@ -1,4 +1,4 @@
-let staticPath = process.argv[2] || '//data/web/html/main/quick-server'
+let staticPath = process.argv[2] || '//data/web/html/main/wg-output/'
 let port = process.argv[3] || '80'
 
 var express = require('express')
